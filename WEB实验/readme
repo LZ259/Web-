@@ -1,0 +1,47 @@
+小组成员：祝安琪、申佳依、黄勍勍、李珍
+分工：李珍完成学生功能模块。
+     申佳依完成管理员功能模块，进行总体报告的编写。
+     祝安琪完成教师功能模块，进行readme的编写。
+     黄勍勍完成总体的整合、数据库、过滤器以及多类用户的登录、注册。
+
+基本设计思路：
+    1.分层架构设计：
+       表现层：使用 JSP 和 HTML/CSS/JavaScript 实现用户界面，通过 JSTL 标签库简化页面逻辑。
+       业务逻辑层：由 Service 类（如 UserService, ResourceService）封装核心业务逻辑，提供统一接口。
+       数据访问层通过 DAO 类（如 UserDAO, ResourceDAO）实现数据库操作，与数据库交互。
+    2.模块化设计：
+       系统按角色划分为 admin, teacher, student 三个模块，每个模块有独立的目录结构和功能页面。
+       各模块间通过 Servlet 协调处理请求，确保职责分离。
+    3.权限控制机制：
+       使用 @WebFilter 注解定义过滤器（如 AdminAuthFilter, TeacherAuthFilter, StudentAuthFilter），在请求到达 Servlet 进行权限验证。
+       用户角色（admin, teacher, student）存储在 User.role 字段中，用于控制访问权限。
+    4.数据持久化：
+       使用 DBUtil 工具类管理数据库连接，通过 Connection, PreparedStatement, ResultSet 等 JDBC API 进行数据库操作。
+       所有实体类（如 User, Resource, Question）均映射到数据库表，实现对象关系映射。
+    5.文件上传与管理：
+       利用 FileUploadUtil 工具类处理文件上传，支持多部分表单数据解析。
+       上传文件保存至服务器指定目录，并将文件路径记录在数据库中，供后续下载使用。
+    6.页面跳转与状态管理：
+       使用 HttpSession 维护用户登录状态，确保会话安全。
+       通过 request.getRequestDispatcher().forward() 或 response.sendRedirect() 实现页面跳转，保持用户体验流畅。
+
+技术选型：
+    前端技术：
+       使用 JSP 和 HTML/CSS/JavaScript 实现页面展示。
+       采用 JSTL 标签库简化页面逻辑控制。
+    后端技术：
+       使用 Servlet 处理HTTP请求，实现业务逻辑。
+       通过 Java 编写服务层和数据访问层代码。
+    数据库技术：
+       使用 MySQL 数据库存储用户、课程、资源等信息。
+       通过 JDBC 进行数据库操作。
+    文件处理：
+       利用 Apache Commons FileUpload 库处理文件上传。
+    安全与权限：
+      使用 MD5 加密存储用户密码。
+      通过 Filter 实现权限控制。
+
+贡献度：黄勍勍31%
+       祝安琪23%
+       申佳依23%
+       李珍23%

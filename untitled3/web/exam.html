@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>在线考试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+        }
+        .options {
+            margin: 10px 0 0 20px;
+        }
+        .option {
+            margin: 8px 0;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 5px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 8px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1>在线考试</h1>
+<form action="ExamServlet" method="post">
+    <!-- 单选题 -->
+    <div class="question">
+        <p><strong>1. 下列哪个是Java的基本数据类型？（单选题，30分）</strong></p>
+        <div class="options">
+            <div class="option">
+                <input type="radio" name="q1" id="q1a" value="A" required>
+                <label for="q1a">A. String</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q1" id="q1b" value="B">
+                <label for="q1b">B. Integer</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q1" id="q1c" value="C">
+                <label for="q1c">C. int</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="q1" id="q1d" value="D">
+                <label for="q1d">D. ArrayList</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 多选题 -->
+    <div class="question">
+        <p><strong>2. 下列哪些是面向对象的基本特征？（多选题，40分，多选、少选均不得分）</strong></p>
+        <div class="options">
+            <div class="option">
+                <input type="checkbox" name="q2" id="q2a" value="A">
+                <label for="q2a">A. 封装</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" name="q2" id="q2b" value="B">
+                <label for="q2b">B. 继承</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" name="q2" id="q2c" value="C">
+                <label for="q2c">C. 多态</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" name="q2" id="q2d" value="D">
+                <label for="q2d">D. 抽象</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 填空题 -->
+    <div class="question">
+        <p><strong>3. Java程序的入口方法是______？（填空题，30分）</strong></p>
+        <input type="text" name="q3" placeholder="请输入答案" required>
+    </div>
+
+    <button type="submit">交卷</button>
+</form>
+</body>
+</html>
